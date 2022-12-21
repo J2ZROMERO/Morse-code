@@ -52,5 +52,9 @@ def decode_word(word)
   return splitted.each { |n| puts decode_char(n) }
 end
 
+def split(sentence)
+  words = sentence.split("  ")
+  print(words)
+  return words.each { |n| put " " + decord_word(n)}
 decode_word('.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...')
 
