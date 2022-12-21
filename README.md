@@ -20,7 +20,7 @@
 
 # 📖 [Morse - code] <a name="about-project"></a>
 
-> This repository incluides adata about animals in a vet clinic..
+> This repository incluides a functions that lets you se the output of the Morse code.
 
 
 ## 🛠 Built With <a name="built-with"></a>
