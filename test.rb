@@ -41,20 +41,16 @@ def decode_char(word)
     '-.--' => 'Y',
     '--..' => 'Z'
   }
-  decoded = letters[word]
-  puts decoded
+  decoded = dictionary[word]
+  return decoded
 end
 
-decode_char('.-');
+def decode_word(word)
+  print word
+  splitted = word.split()
+  print splitted
+  return splitted.each { |n| puts decode_char(n) }
+end
 
-# class test 
-#   def decode_char(word)
-#    if word === letters['.-']
-#     puts ('yes')
-#    end
-#   end
-# end
+decode_word('.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...')
 
-# asd = test.new
-# asd.decode_char(".-")
-# # puts cube(2)
