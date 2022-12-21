@@ -1,52 +1,33 @@
+class Words
+  def data_morse()
+    {
+      '.-' => 'A', '-...' => 'B', '-.-.' => 'C', '-..' => 'D',
+      '.' => 'E', '..-.' => 'F', '--.' => 'G', '....' => 'H',
+      '..' => 'I', '.---' => 'J', '-.-' => 'K', '.-..' => 'L',
+      '--' => 'M', '-.' => 'N', '---' => 'O', '.--.' => 'P',
+      '--.-' => 'Q', '.-.' => 'R', '...' => 'S', '-' => 'T',
+      '..-' => 'U', '...-' => 'V', '.--' => 'W', '-..-' => 'X',
+      '-.--' => 'Y', '--..' => 'Z'
+    }
+  end
 
-def decode_char(word)
-  dictionary = {
-    '.-' => 'A',
-    '-...' => 'B',
-    '-.-.' => 'C',
-    '-..' => 'D',
-    '.' => 'E',
-    '..-.' => 'F',
-    '--.' => 'G',
-    '....' => 'H',
-    '..' => 'I',
-    '.---' => 'J',
-    '-.-' => 'K',
-    '.-..' => 'L',
-    '--' => 'M',
-    '-.' => 'N',
-    '---' => 'O',
-    '.--.' => 'P',
-    '--.-' => 'Q',
-    '.-.' => 'R',
-    '...' => 'S',
-    '-' => 'T',
-    '..-' => 'U',
-    '...-' => 'V',
-    '.--' => 'W',
-    '-..-' => 'X',
-    '-.--' => 'Y',
-    '--..' => 'Z'
-  }
-  decoded = dictionary[word]
-  return decoded
+  def decode_char(word)
+    data_morse[word]
+  end
+
+  def decode_word(word)
+    new_word = ''
+    splitted = word.split
+    splitted.each { |n| new_word += decode_char(n) }
+    new_word
+  end
+
+  def split(sentence)
+    words = sentence.split('  ')
+    words.each { |n| print " #{decode_word(n)}" }
+  end
 end
 
-def decode_word(word)
-  newWord = ""
-  splitted = word.split()
+wordsobj = Words.new
 
-  splitted.each { |n| newWord += decode_char(n) }
-  return newWord
-end
-
-def split(sentence)
-  words = sentence.split("  ")
-  print words
-  return words.each { |n| print " " + decode_word(n)}
-end
-
-
-
-split('.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...')
-
+wordsobj.split('.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...')
