@@ -1,17 +1,4 @@
-# def sayhi(name)
-#   puts("Hello#{name}")
-# end
 
-# sayhi('yo')
-
-# def cube(num)
-#   return num * num * num
-# end
-
-# letters = {
-#   '.-' => 'A',
-# }
-# puts letters['.-']
 def decode_char(word)
   dictionary = {
     '.-' => 'A',
@@ -46,15 +33,20 @@ def decode_char(word)
 end
 
 def decode_word(word)
-  print word
+  newWord = ""
   splitted = word.split()
-  print splitted
-  return splitted.each { |n| puts decode_char(n) }
+
+  splitted.each { |n| newWord += decode_char(n) }
+  return newWord
 end
 
 def split(sentence)
   words = sentence.split("  ")
-  print(words)
-  return words.each { |n| put " " + decord_word(n)}
-decode_word('.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...')
+  print words
+  return words.each { |n| print " " + decode_word(n)}
+end
+
+
+
+split('.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...')
 
